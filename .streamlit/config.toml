@@ -1,0 +1,11 @@
+[server]
+
+runOnSave = true
+
+[theme]
+
+primaryColor="#f63366"
+backgroundColor="#EEE"
+secondaryBackgroundColor="#DDD"
+textColor="#000000"
+font="monospace"
