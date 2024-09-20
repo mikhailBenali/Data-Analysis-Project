@@ -6,8 +6,14 @@ st.title('Data Visualization')
 
 movies = pd.read_csv('data/movies.csv')
 
+movies["year"] = movies['title'].str.extract(r"\((\d{4})\)$")
+
 st.subheader("The movies dataset")
 st.dataframe(movies.head())
+
+st.subheader("Number of movies per year")
+movies_per_year = movies['year'].value_counts().sort_index()
+st.bar_chart(movies_per_year, color="#FF5555")
 
 ratings = pd.read_csv('data/ratings.csv')
 
@@ -34,7 +40,7 @@ ratings['month'] = ratings['dates'].dt.month
 
 st.subheader("Number of ratings per year")
 ratings_per_year = ratings['year'].value_counts().sort_index()
-st.line_chart(ratings_per_year, color="#00CC00")
+st.bar_chart(ratings_per_year, color="#00CC00")
 
 months = st.tabs(["January", "February", "March", "April", "May", "June", "July", 
 "August", "September", "October", "November", "December"])
@@ -46,7 +52,7 @@ for month in months:
     with month:
         st.subheader(f"Number of ratings in {months_str[months.index(month)]}")
         ratings_per_month = ratings[ratings['month'] == months.index(month) + 1]['year'].value_counts().sort_index()
-        st.line_chart(ratings_per_month, color="#FF5555")
+        st.bar_chart(ratings_per_month, color="#FF5555")
 
 tags = pd.read_csv('data/tags.csv')
 
