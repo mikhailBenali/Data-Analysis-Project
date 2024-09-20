@@ -19,7 +19,7 @@ with col1:
         """<a href="https://github.com/mikhailBenali/">
         <img src="data:image/png;base64,{}" width="75">
         </a>""".format(
-            base64.b64encode(open("/home/mikhail/Documents/Coding/DataAnalysis/DataVizProject/img/GitHub-Symbol.png", "rb").read()).decode()
+            base64.b64encode(open("img/GitHub-Symbol.png", "rb").read()).decode()
         ),
         unsafe_allow_html=True,
     )
@@ -29,7 +29,7 @@ with col2:
         """<a href="https://www.linkedin.com/in/mikha%C3%AFl-benali/">
         <img src="data:image/png;base64,{}" width="75">
         </a>""".format(
-            base64.b64encode(open("/home/mikhail/Documents/Coding/DataAnalysis/DataVizProject/img/linkedin-logo-linkedin-icon-transparent-free-png.webp", "rb").read()).decode()
+            base64.b64encode(open("img/linkedin-logo-linkedin-icon-transparent-free-png.webp", "rb").read()).decode()
         ),
         unsafe_allow_html=True,
     )

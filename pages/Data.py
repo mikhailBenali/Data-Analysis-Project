@@ -1,14 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import plotly.express as px
-import bokeh as bk
 import altair as alt
-from time import sleep
-
-st.spinner("Loading data...")
-sleep(5)
 
 st.title('Data Visualization')
 
@@ -60,8 +52,10 @@ tags = pd.read_csv('data/tags.csv')
 
 st.subheader("Number of movies per tag")
 
-st.write(f"There is {len(tags['tag'].unique())} unique tags")
-st.write("Here are the 30 most used tags")
+st.dataframe(tags.head())
+
+st.markdown(f"There is **{len(tags['tag'].unique())}** unique tags")
+st.write("Here are the **30** most used tags")
 
 
 fig = alt.Chart(tags['tag'].value_counts().head(30).reset_index()).mark_bar().encode(
@@ -71,3 +65,9 @@ fig = alt.Chart(tags['tag'].value_counts().head(30).reset_index()).mark_bar().en
 )
 st.altair_chart(fig, use_container_width=True)
 
+links = pd.read_csv('data/links.csv')
+
+st.subheader("The links dataset")
+st.dataframe(links.head())
+
+st.subheader("Number imdbId/tmdbId per movieId")
