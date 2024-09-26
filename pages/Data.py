@@ -6,13 +6,7 @@ st.title('Data Visualization')
 
 st.subheader("The movies dataset")
 movies = pd.read_csv('data/movies.csv')
-
-movies["year"] = movies['title'].str.extract(r"\((\d{4})\)$")
 st.dataframe(movies.head())
-
-st.subheader("Number of movies per year")
-movies_per_year = movies['year'].value_counts().sort_index()
-st.bar_chart(movies_per_year, color="#FF5555")
 
 st.subheader("The ratings dataset")
 ratings = pd.read_csv('data/ratings.csv')
@@ -23,6 +17,11 @@ tags = pd.read_csv('data/tags.csv')
 st.dataframe(tags.head())
 
 st.divider()
+
+movies["year"] = movies['title'].str.extract(r"\((\d{4})\)$")
+st.subheader("Number of movies per year")
+movies_per_year = movies['year'].value_counts().sort_index()
+st.bar_chart(movies_per_year, color="#FF5555")
 
 st.subheader("Number of movies per genre")
 genres = movies['genres'].str.split('|', expand=True).stack().value_counts().sort_values(ascending=False)
