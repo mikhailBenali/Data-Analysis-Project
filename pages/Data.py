@@ -6,7 +6,13 @@ st.title('Data Visualization')
 
 st.subheader("The movies dataset")
 movies = pd.read_csv('data/movies.csv')
+
+movies["year"] = movies['title'].str.extract(r"\((\d{4})\)$")
 st.dataframe(movies.head())
+
+st.subheader("Number of movies per year")
+movies_per_year = movies['year'].value_counts().sort_index()
+st.bar_chart(movies_per_year, color="#FF5555")
 
 st.subheader("The ratings dataset")
 ratings = pd.read_csv('data/ratings.csv')
