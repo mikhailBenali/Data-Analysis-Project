@@ -2,6 +2,7 @@ import streamlit as st
 import base64
 
 st.title('My Profile')
+st.divider()
 st.subheader('Mikhaïl BENALI')
 
 st.image("img/profile_picture.jpeg", width=200, caption='A picture of me')
@@ -11,7 +12,7 @@ st.markdown("""
     I'm passionate about data science and machine learning, and I'm always looking for new projects to work on.
 """)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2, vertical_alignment='center')
 
 with col1:
     # Github button
@@ -37,9 +38,9 @@ with col2:
 st.header('My Skills :hammer_and_wrench:')
 
 st.markdown("""
-**Programming languages** :computer: : Python, Java, C, C++, SQL
+**Programming languages/Libraries** :computer: : Python(PyTorch, Pandas, Numpy, Matplotlib...), Java, C, C++, SQL
 
-**Soft skills** 🗣️ : Teamwork, communication, problem-solving
+**Soft skills** 🗣️ : Teamwork, communication, problem-solving, IT monitoring
 
-**Mathematics** 🔣 : Linear algebra, calculus, statistics, probability
+**Mathematics** 🔣 : Linear algebra, calculus, statistics, probability, Machine Learning
 """)

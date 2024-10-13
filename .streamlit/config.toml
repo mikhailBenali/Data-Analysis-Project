@@ -4,8 +4,8 @@ runOnSave = true
 
 [theme]
 
-primaryColor="#f63366"
-backgroundColor="#EEE"
-secondaryBackgroundColor="#DDD"
-textColor="#000000"
+primaryColor="#F00"
+backgroundColor="#222"
+secondaryBackgroundColor="#555"
+textColor="#FFF"
 font="monospace"
